@@ -187,7 +187,8 @@ body.present-mode .stage-container {
 .full-slide-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;  /* Changed from 'cover' to prevent cropping */
+    background: var(--bg-dark);  /* Black background for letterboxing */
 }
 
 body.present-mode .stage {
@@ -247,12 +248,13 @@ body.present-mode .stage {
     color: var(--text-light);
     line-height: 1.1;
     letter-spacing: -0.5px;
-    margin-bottom: 55px;
+    margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 .subtitle {
     font-family: var(--font-sans);
-    font-size: var(--subtitle-size);
+    font-size: 40px;
     font-weight: 400;
     color: var(--primary);
     line-height: 1.3;
