@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Agentic Engineer - Prajwal Karanayyana</title>
+    
+    <!--
+    ╔════════════════════════════════════════════════════════════════════════════╗
+    ║                          HOW TO EDIT THIS SLIDE                            ║
+    ╠════════════════════════════════════════════════════════════════════════════╣
+    ║                                                                            ║
+    ║  NAVIGATION:                                                               ║
+    ║  - Arrow keys (← →) to navigate between slides                             ║
+    ║  - Click navigation buttons at bottom                                      ║
+    ║                                                                            ║
+    ║  TEXT CONTENT:                                                             ║
+    ║  - Edit the CONFIG object in script.js to change text                      ║
+    ║  - Or edit HTML directly for each slide                                    ║
+    ║                                                                            ║
+    ║  KEYBOARD CONTROLS:                                                        ║
+    ║  - ← / →: Navigate slides                                                  ║
+    ║  - Space / R: Replay animation                                             ║
+    ║  - O: Toggle overlay (for pixel matching)                                  ║
+    ║  - P: Toggle present mode (hides dev UI)                                   ║
+    ║  - F: Toggle fullscreen                                                    ║
+    ║                                                                            ║
+    ╚════════════════════════════════════════════════════════════════════════════╝
+    -->
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dev Controls -->
+    <div class="dev-controls" id="devControls">
+        <button id="prevBtn" title="Previous Slide (←)">← Prev</button>
+        <button id="nextBtn" title="Next Slide (→)">Next →</button>
+        <span class="slide-indicator" id="slideIndicator">1 / 5</span>
+        <button id="replayBtn" title="Replay Animation (R)">↻ Replay</button>
+        <button id="overlayBtn" title="Toggle Overlay (O)">📐 Overlay</button>
+        <button id="presentBtn" title="Present Mode (P)">🎬 Present</button>
+        <button id="fullscreenBtn" title="Fullscreen (F)">⛶ Fullscreen</button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container">
+        
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <!-- SLIDE 1: Welcome Slide (Full Image)                                  -->
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <div class="stage-container" data-slide="1">
+            <div class="stage slide-image" id="stage1">
+                <img src="assets/welcome-slide.png" alt="Welcome" class="full-slide-image animate-element" data-animate="1">
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <!-- SLIDE 2: Title/Speaker Slide (Dark Background)                       -->
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <div class="stage-container" data-slide="2" style="display: none;">
+            <div class="stage slide-dark" id="stage2">
+                
+                <!-- Reference Overlay -->
+                <div class="reference-overlay" id="referenceOverlay2">
+                    <img src="assets/slide-reference.png" alt="Reference">
+                </div>
+                
+                <!-- Main Content -->
+                <main class="slide-content">
+                    <header class="title-section">
+                        <h1 class="session-title animate-element" data-animate="1">The Agentic Engineer</h1>
+                        <p class="subtitle animate-element" data-animate="2">How AI agents are transforming us from code writers to value architects</p>
+                    </header>
+                    
+                    <section class="speaker-section animate-element" data-animate="3">
+                        <div class="speaker-card">
+                            <div class="headshot-placeholder">
+                                <img src="assets/prajwal-headshot.jpg" alt="Prajwal Karanayyana">
+                            </div>
+                            <div class="speaker-info">
+                                <p class="speaker-name">Prajwal Karanayyana</p>
+                                <p class="speaker-title">Director of Engineering - Thomson Reuters</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="slide-footer animate-element" data-animate="4">
+                    <div class="footer-left">
+                        <div class="tavant-logo">
+                            <span class="logo-text">TAVANT</span>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-shape">
+                            <span class="confidential-text">Tavant Proprietary & Confidential</span>
+                            <span class="slide-number">2</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <!-- SLIDE 3: AI Agents Transform Every Product Stage                     -->
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <div class="stage-container" data-slide="3" style="display: none;">
+            <div class="stage slide-light" id="stage3">
+                
+                <!-- Reference Overlay -->
+                <div class="reference-overlay" id="referenceOverlay3">
+                    <img src="assets/slide-reference-2.png" alt="Reference">
+                </div>
+                
+                <!-- Main Content Area -->
+                <main class="slide-content content-slide lifecycle-slide">
+                    <!-- Title Section -->
+                    <h2 class="content-title animate-element" data-animate="1">AI AGENTS TRANSFORM EVERY PRODUCT STAGE</h2>
+                    <p class="content-subtitle animate-element" data-animate="2">10× faster growth validation • 50% cost reduction in maturity</p>
+                    
+                    <!-- Lifecycle Curve -->
+                    <div class="lifecycle-container animate-element" data-animate="3">
+                        <svg class="lifecycle-curve" viewBox="0 0 800 180" preserveAspectRatio="xMidYMid meet">
+                            <!-- Grid lines for depth -->
+                            <defs>
+                                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#E87722;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- The lifecycle curve path -->
+                            <path class="curve-path" 
+                                  d="M 50,150 Q 200,150 300,50 Q 400,0 500,50 Q 600,100 750,130" 
+                                  fill="none" 
+                                  stroke="url(#curveGradient)" 
+                                  stroke-width="4"
+                                  stroke-linecap="round"
+                                  filter="url(#glow)"/>
+                            
+                            <!-- Stage markers -->
+                            <circle class="stage-marker growth-marker" cx="150" cy="120" r="8" fill="#4CAF50"/>
+                            <circle class="stage-marker peak-marker" cx="400" cy="25" r="10" fill="#E87722"/>
+                            <circle class="stage-marker maturity-marker" cx="650" cy="100" r="8" fill="#2196F3"/>
+                            
+                            <!-- Stage labels -->
+                            <text class="stage-label" x="150" y="160" text-anchor="middle" fill="#333">GROWTH</text>
+                            <text class="stage-label peak-label" x="400" y="70" text-anchor="middle" fill="#E87722" font-weight="bold">PEAK</text>
+                            <text class="stage-label" x="650" y="140" text-anchor="middle" fill="#333">MATURITY</text>
+                        </svg>
+                    </div>
+                    
+                    <!-- Two Column Layout -->
+                    <div class="stages-grid">
+                        <!-- Growth Stage Column -->
+                        <div class="stage-column growth-column animate-element" data-animate="4">
+                            <div class="column-header growth-header">
+                                <span class="stage-icon">🚀</span>
+                                <span class="stage-title">GROWTH STAGE</span>
+                                <span class="stage-metric">10×</span>
+                            </div>
+                            <ul class="stage-bullets">
+                                <li class="bullet-item animate-element" data-animate="5">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Auto-generate PRDs from ideas</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="6">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Scaffold services & enforce patterns</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="7">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Self-optimizing onboarding flows</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="8">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Run experiments without setup</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Maturity Stage Column -->
+                        <div class="stage-column maturity-column animate-element" data-animate="4">
+                            <div class="column-header maturity-header">
+                                <span class="stage-icon">⚙️</span>
+                                <span class="stage-title">MATURITY STAGE</span>
+                                <span class="stage-metric">50%</span>
+                            </div>
+                            <ul class="stage-bullets">
+                                <li class="bullet-item animate-element" data-animate="5">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Auto-refactor legacy code</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="6">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Find bugs, propose fixes instantly</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="7">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Track competitors 24/7</span>
+                                </li>
+                                <li class="bullet-item animate-element" data-animate="8">
+                                    <span class="bullet-icon">◆</span>
+                                    <span>Diagnose decline, recommend pivots</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="slide-footer animate-element" data-animate="9">
+                    <div class="footer-left">
+                        <div class="tavant-logo">
+                            <span class="logo-text">TAVANT</span>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-shape">
+                            <span class="confidential-text">Tavant Proprietary & Confidential</span>
+                            <span class="slide-number">3</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <!-- SLIDE 4: Make Legacy Codebases AI-Ready                              -->
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <div class="stage-container" data-slide="4" style="display: none;">
+            <div class="stage slide-light" id="stage4">
+                
+                <!-- Reference Overlay -->
+                <div class="reference-overlay" id="referenceOverlay4">
+                    <img src="assets/slide-reference-3.png" alt="Reference">
+                </div>
+                
+                <!-- Main Content Area -->
+                <main class="slide-content content-slide legacy-slide">
+                    <!-- Title Section -->
+                    <h2 class="content-title animate-element" data-animate="1">MAKE LEGACY CODEBASES AI-READY</h2>
+                    <p class="content-subtitle animate-element" data-animate="2">Structure context with docs • Measure adoption, scale champions</p>
+                    
+                    <!-- Transformation Pipeline -->
+                    <div class="transformation-pipeline animate-element" data-animate="3">
+                        <div class="pipeline-step" data-step="1">
+                            <div class="step-box legacy-box">
+                                <div class="step-icon">📦</div>
+                                <div class="step-label">LEGACY CODE</div>
+                            </div>
+                            <div class="step-desc">Scattered Knowledge</div>
+                        </div>
+                        
+                        <div class="pipeline-arrow">
+                            <svg viewBox="0 0 40 20" class="arrow-svg">
+                                <path d="M0,10 L30,10 M25,5 L30,10 L25,15" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="pipeline-step" data-step="2">
+                            <div class="step-box docs-box">
+                                <div class="step-icon">📄</div>
+                                <div class="step-label">.MD FILES</div>
+                            </div>
+                            <div class="step-desc">Structured Context</div>
+                        </div>
+                        
+                        <div class="pipeline-arrow">
+                            <svg viewBox="0 0 40 20" class="arrow-svg">
+                                <path d="M0,10 L30,10 M25,5 L30,10 L25,15" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="pipeline-step" data-step="3">
+                            <div class="step-box agent-box">
+                                <div class="step-icon">🤖</div>
+                                <div class="step-label">AI AGENT</div>
+                            </div>
+                            <div class="step-desc">Context-Rich Processing</div>
+                        </div>
+                        
+                        <div class="pipeline-arrow">
+                            <svg viewBox="0 0 40 20" class="arrow-svg">
+                                <path d="M0,10 L30,10 M25,5 L30,10 L25,15" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="pipeline-step" data-step="4">
+                            <div class="step-box output-box">
+                                <div class="step-icon">✅</div>
+                                <div class="step-label">CLEAN CODE</div>
+                            </div>
+                            <div class="step-desc">Accurate Output</div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Toolkit Grid -->
+                    <div class="toolkit-grid animate-element" data-animate="4">
+                        <div class="toolkit-card">
+                            <div class="toolkit-icon">🧩</div>
+                            <div class="toolkit-title">Skills</div>
+                            <div class="toolkit-desc">Reusable AI capabilities</div>
+                        </div>
+                        
+                        <div class="toolkit-card">
+                            <div class="toolkit-icon">🤖</div>
+                            <div class="toolkit-title">Sub-agents</div>
+                            <div class="toolkit-desc">Specialized task workers</div>
+                        </div>
+                        
+                        <div class="toolkit-card">
+                            <div class="toolkit-icon">🌳</div>
+                            <div class="toolkit-title">WorkTrees</div>
+                            <div class="toolkit-desc">Parallel dev environments</div>
+                        </div>
+                        
+                        <div class="toolkit-card">
+                            <div class="toolkit-icon">🔌</div>
+                            <div class="toolkit-title">MCP Servers</div>
+                            <div class="toolkit-desc">Extended AI integration</div>
+                        </div>
+                    </div>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="slide-footer animate-element" data-animate="11">
+                    <div class="footer-left">
+                        <div class="tavant-logo">
+                            <span class="logo-text">TAVANT</span>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-shape">
+                            <span class="confidential-text">Tavant Proprietary & Confidential</span>
+                            <span class="slide-number">4</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <!-- SLIDE 5: From Code Writers to Value Architects                       -->
+        <!-- ═══════════════════════════════════════════════════════════════════ -->
+        <div class="stage-container" data-slide="5" style="display: none;">
+            <div class="stage slide-light" id="stage5">
+                
+                <!-- Reference Overlay -->
+                <div class="reference-overlay" id="referenceOverlay5">
+                    <img src="assets/slide-reference-4.png" alt="Reference">
+                </div>
+                
+                <!-- Main Content Area -->
+                <main class="slide-content content-slide value-architects-slide">
+                    <!-- Title Section -->
+                    <h2 class="content-title animate-element" data-animate="1">FROM CODE WRITERS TO VALUE ARCHITECTS</h2>
+                    <p class="content-subtitle animate-element" data-animate="2">AI shifts value from syntax mastery to customer obsession</p>
+                    
+                    <!-- Three Pillars Grid -->
+                    <div class="pillars-grid">
+                        <!-- Pillar 1: Customer First -->
+                        <div class="pillar-card animate-element" data-animate="3">
+                            <div class="pillar-icon">🎯</div>
+                            <h3 class="pillar-title">CUSTOMER FIRST</h3>
+                            <blockquote class="pillar-quote">"You can't instruct AI on what you don't know"</blockquote>
+                            <ul class="pillar-bullets">
+                                <li>Think like a product owner</li>
+                                <li>Understand customer pain deeply</li>
+                                <li>Translate needs into specs</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Pillar 2: Fail Fast -->
+                        <div class="pillar-card animate-element" data-animate="4">
+                            <div class="pillar-icon">⚡</div>
+                            <h3 class="pillar-title">FAIL FAST</h3>
+                            <blockquote class="pillar-quote">"Slow failure is the new failure"</blockquote>
+                            <ul class="pillar-bullets">
+                                <li>POCs in hours, not weeks</li>
+                                <li>Learn fast, iterate faster</li>
+                                <li>Ship, measure, improve</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Pillar 3: Small Teams -->
+                        <div class="pillar-card animate-element" data-animate="5">
+                            <div class="pillar-icon">👥</div>
+                            <h3 class="pillar-title">SMALL TEAMS</h3>
+                            <blockquote class="pillar-quote">"2-4 engineers outperform large teams"</blockquote>
+                            <ul class="pillar-bullets">
+                                <li>Sync daily, stay aligned</li>
+                                <li>Own outcomes end-to-end</li>
+                                <li>Challenge each other</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Insight Banner -->
+                    <div class="insight-banner animate-element" data-animate="6">
+                        <span class="insight-text">AI handles syntax. <strong>You handle strategy.</strong></span>
+                    </div>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="slide-footer animate-element" data-animate="7">
+                    <div class="footer-left">
+                        <div class="tavant-logo">
+                            <span class="logo-text">TAVANT</span>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-shape">
+                            <span class="confidential-text">Tavant Proprietary & Confidential</span>
+                            <span class="slide-number">5</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
