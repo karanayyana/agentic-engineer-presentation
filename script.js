@@ -396,11 +396,110 @@ class SlideController {
 }
 
 // ============================================================================
+// TOUCH/SWIPE SUPPORT
+// ============================================================================
+
+class TouchHandler {
+    constructor(slideController) {
+        this.slideController = slideController;
+        this.touchStartX = 0;
+        this.touchStartY = 0;
+        this.touchStartTime = 0;
+        this.touchEndX = 0;
+        this.touchEndY = 0;
+        this.minSwipeDistance = 50;  // Minimum swipe distance in pixels
+        this.maxVerticalRatio = 0.75; // Allow some vertical movement
+        this.tapThreshold = 10;  // Max movement for a tap
+        this.tapTimeThreshold = 300;  // Max time for a tap (ms)
+        
+        this.init();
+    }
+    
+    init() {
+        const container = document.querySelector('.slides-container');
+        if (!container) return;
+        
+        container.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+        container.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+        
+        // Also add click handler for tap zones in presentation mode
+        container.addEventListener('click', (e) => this.handleClick(e));
+        
+        console.log('📱 Touch navigation enabled (swipe + tap zones in present mode)');
+    }
+    
+    handleTouchStart(e) {
+        this.touchStartX = e.changedTouches[0].screenX;
+        this.touchStartY = e.changedTouches[0].screenY;
+        this.touchStartTime = Date.now();
+    }
+    
+    handleTouchEnd(e) {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.touchEndY = e.changedTouches[0].screenY;
+        
+        const deltaX = Math.abs(this.touchEndX - this.touchStartX);
+        const deltaY = Math.abs(this.touchEndY - this.touchStartY);
+        const elapsed = Date.now() - this.touchStartTime;
+        
+        // Check if this is a tap (small movement, short time)
+        if (deltaX < this.tapThreshold && deltaY < this.tapThreshold && elapsed < this.tapTimeThreshold) {
+            this.handleTap(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        } else {
+            this.handleSwipe();
+        }
+    }
+    
+    handleClick(e) {
+        // Handle click for desktop presentation mode
+        if (!this.slideController.isPresentMode) return;
+        this.handleTap(e.clientX, e.clientY);
+    }
+    
+    handleTap(clientX, clientY) {
+        // Only enable tap navigation in presentation mode
+        if (!this.slideController.isPresentMode) return;
+        
+        const screenWidth = window.innerWidth;
+        const tapZoneWidth = screenWidth * 0.2;  // 20% on each edge
+        
+        if (clientX < tapZoneWidth) {
+            // Tap on left edge -> previous slide
+            this.slideController.prevSlide();
+        } else if (clientX > screenWidth - tapZoneWidth) {
+            // Tap on right edge -> next slide
+            this.slideController.nextSlide();
+        } else {
+            // Tap in center -> toggle present mode (exit)
+            this.slideController.togglePresentMode();
+        }
+    }
+    
+    handleSwipe() {
+        const deltaX = this.touchEndX - this.touchStartX;
+        const deltaY = this.touchEndY - this.touchStartY;
+        
+        // Check if horizontal swipe is dominant
+        if (Math.abs(deltaX) < this.minSwipeDistance) return;
+        if (Math.abs(deltaY) > Math.abs(deltaX) * this.maxVerticalRatio) return;
+        
+        if (deltaX > 0) {
+            // Swiped right -> previous slide
+            this.slideController.prevSlide();
+        } else {
+            // Swiped left -> next slide
+            this.slideController.nextSlide();
+        }
+    }
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     window.slideController = new SlideController();
+    window.touchHandler = new TouchHandler(window.slideController);
 });
 
 // ============================================================================

@@ -446,6 +446,148 @@ body.present-mode .stage {
 }
 
 /* ============================================================================
+   MOBILE RESPONSIVE STYLES
+   ============================================================================ */
+
+/* Tablet and below */
+@media screen and (max-width: 1024px) {
+    .dev-controls {
+        top: 5px;
+        right: 5px;
+        gap: 4px;
+        flex-wrap: wrap;
+        max-width: 100%;
+        justify-content: center;
+        left: 5px;
+    }
+    
+    .dev-controls button {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .slide-indicator {
+        font-size: 12px;
+        padding: 0 8px;
+    }
+    
+    .stage-container {
+        padding: 60px 10px 10px;
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 768px) {
+    .dev-controls {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 8px;
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+        z-index: 1000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .dev-controls button {
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .slide-indicator {
+        font-size: 14px;
+        font-weight: 600;
+        order: -1;
+        width: 100%;
+        text-align: center;
+        padding: 4px 0;
+    }
+    
+    .stage-container {
+        padding: 10px 5px 80px;
+    }
+    
+    body.present-mode .stage-container {
+        padding: 0;
+    }
+    
+    body.present-mode .dev-controls {
+        display: none;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+    .dev-controls button {
+        padding: 8px 8px;
+        font-size: 10px;
+    }
+    
+    /* Hide less essential buttons on very small screens */
+    #overlayBtn,
+    #fullscreenBtn {
+        display: none;
+    }
+    
+    .stage-container {
+        padding: 5px 2px 70px;
+    }
+}
+
+/* Touch device indicator */
+@media (hover: none) and (pointer: coarse) {
+    /* Hide overlay button on touch devices - less useful */
+    #overlayBtn {
+        display: none;
+    }
+    
+    /* Larger touch targets */
+    .dev-controls button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Landscape mobile - optimize for horizontal viewing */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .dev-controls {
+        position: fixed;
+        right: 10px;
+        left: auto;
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 8px;
+        border-radius: 8px;
+        gap: 4px;
+    }
+    
+    .slide-indicator {
+        order: 0;
+        width: auto;
+    }
+    
+    .stage-container {
+        padding: 5px 60px 5px 5px;
+    }
+    
+    #overlayBtn,
+    #fullscreenBtn,
+    #presentBtn {
+        display: none;
+    }
+}
+
+/* ============================================================================
    FULLSCREEN STYLES
    ============================================================================ */
 
